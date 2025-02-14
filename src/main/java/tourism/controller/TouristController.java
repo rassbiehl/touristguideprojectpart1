@@ -43,7 +43,7 @@ public class TouristController {
 
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/viewattraction/{name}")
     public String getAttractionByName(@PathVariable String name, Model model) {
         Optional<TouristAttraction> foundAttraction = touristService.getAttractionByName(name);
 
@@ -73,17 +73,20 @@ public class TouristController {
             redirectAttributes.addFlashAttribute("message", name + " could not be found and has not been deleted.");
         }
 
-        return "redirect:/attractions";
+        return "redirect:/attractions#attractions";
     }
 
 
-    @PutMapping("/{name}")
-    public ResponseEntity<String> updateAttraction(@PathVariable String name, @RequestBody TouristAttraction updatedAttraction) {
+    @PostMapping("/update/{name}")
+    public String updateAttraction(@PathVariable String name, @ModelAttribute TouristAttraction updatedAttraction, Model model) {
         boolean updated = touristService.updateAttraction(name, updatedAttraction.getName(), updatedAttraction.getDescription());
+
         if (updated) {
-            return ResponseEntity.ok(name + " was successfully updated.");
+            model.addAttribute("message", "Attraction is updated.");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Attraction not found.");
+            model.addAttribute("message", "Attraction was not found and wasn't updated.");
         }
+
+        return "redirect:/attractions#attractions";
     }
 }

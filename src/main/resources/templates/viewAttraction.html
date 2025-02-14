@@ -22,15 +22,16 @@
 
 
         <h2>Delete [[${viewAttraction.name}]]</h2>
-        <form th:action="@{/delete/{name}(name=${viewAttraction.name})}" method="post">
-
+        <form th:action="@{/attractions/delete/{name}(name=${viewAttraction.name})}" method="post">
             <button class="submit" type="submit">Delete from list of tourist attractions</button>
         </form>
 
-        <p th:if="${message}" th:text="${message}" style="color: red;"></p>
-
-
         <h2>Update [[${viewAttraction.name}]]</h2>
+        <form th:action="@{/attractions/update/{name}(name=${viewAttraction.name})}" method="post">
+            <input type="text" name="name"  placeholder="Enter new name...">
+            <input type="text" name="description" placeholder="Enter new description...">
+            <button class="submit" type="submit">Update [[${viewAttraction.name}]]</button>
+        </form>
 
 
         <div class="back">

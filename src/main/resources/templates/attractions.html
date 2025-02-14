@@ -47,11 +47,16 @@
 <!-- the reason the following code works and updates is because the submit button refreshes the page -->
         <div class="locations">
             <div class="location-item" th:each="attraction : ${attractions}">
-                <a class="link" th:href="@{/attractions/{name}(name=${attraction.name})} " th:text="${attraction.name}"></a>
+                <a class="link" th:href="@{/attractions/viewattraction/{name}(name=${attraction.name})} " th:text="${attraction.name}"></a>
             </div> <!--        the page that you will be redirected to by clicking the name     what is shown by standard on the main page -->
         </div>
-
+        <p th:if="${message}" th:text="${message}"
+           style="color: red; text-align: center;
+          font-family: 'Darumadrop One', sans-serif;
+          font-size: 2vw; font-style: oblique;">
+        </p>
     </div>
+
 </div>
 
 <div class="about" id="about">
