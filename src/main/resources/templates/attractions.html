@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Denmark</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+
+</head>
+
+<body>
+
+
+<div class="start" id="start">
+    <nav class="navbar">
+        <div class="logo">Discover Denmark</div>
+        <ul class="nav-links">
+            <li><a href="#start">Home</a></li>
+            <li><a href="#attractions">Attractions</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="attractions" id="attractions">
+    <div class="content">
+        <div class="headline">
+            <h1>Attractions:</h1>
+            <!-- the action is what calls the method from the controller -->
+            <form action="/attractions#attractions" method="get"> <!-- the get-method adds the input to the url-->
+                <input type="text" class="inputBar" name="search" placeholder="Search for an attraction..." th:value="${param.search}">
+                <!-- by adding th:value="${param.search}" it makes what the user typed in stay on the page when reloading -->
+                <button class="submit" type="submit">Search</button> <!-- submits what the user typed in -->
+            </form>
+        </div>
+<!-- the reason the following code works and updates is because the submit button refreshes the page -->
+        <div class="locations">
+            <div class="location-item" th:each="attraction : ${attractions}">
+                <a class="link" th:href="@{/attractions/{name}(name=${attraction.name})} " th:text="${attraction.name}"></a>
+            </div> <!--        the page that you will be redirected to by clicking the name     what is shown by standard on the main page -->
+        </div>
+
+    </div>
+</div>
+
+<div class="about" id="about">
+    <div class="headline">
+        <h1>About Discover Denmark</h1>
+        <p>Discover Denmark is a simple guide to cool places in Denmark.
+            It’s a test project for my studies at KEA, just to try things out. Hope you like it.</p>
+    </div>
+</div>
+
+<div class="contact" id="contact">
+    <div class="headline">
+        <h1>Contact:</h1>
+        <p>Rasmus Biehl</p>
+        <p>Rasbiehl@gmail.com</p>
+    </div>
+</div>
+
+</body>
+</html>

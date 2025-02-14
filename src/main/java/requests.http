@@ -1,0 +1,26 @@
+
+//få alle attractions
+GET http://localhost:8080/attractions
+###
+//delete attraction
+DELETE http://localhost:8080/attractions/legoland
+###
+//search for attraction
+GET http://localhost:8080/attractions/Rundetaarn
+
+###
+//add attraction
+POST http://localhost:8080/attractions
+Content-Type: application/json
+
+{
+  "name": "legoland",
+  "description": "dejligt sted"
+}
+
+###
+
+
+
+
+

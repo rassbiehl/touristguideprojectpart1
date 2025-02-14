@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${viewAttraction.name}"></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="viewAttractionStart">
+    <div class="content2">
+        <h1 th:text="${viewAttraction.name}"></h1>
+        <p th:text="${viewAttraction.description}"></p>
+
+
+        <h2>Delete [[${viewAttraction.name}]]</h2>
+        <form th:action="@{/delete/{name}(name=${viewAttraction.name})}" method="post">
+
+            <button class="submit" type="submit">Delete from list of tourist attractions</button>
+        </form>
+
+        <p th:if="${message}" th:text="${message}" style="color: red;"></p>
+
+
+        <h2>Update [[${viewAttraction.name}]]</h2>
+
+
+        <div class="back">
+            <a href="/attractions#attractions">Back to Attractions</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

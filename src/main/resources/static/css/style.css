@@ -1,0 +1,232 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Start page  ------------------------------------------------------------------------*/
+
+.start {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.bonnier.cloud/files/ill/production/2022/09/12110153/koebenhavn-er-danmarks-stoerste-by.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* navigation-bar ------------------------------------------------------------------------*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+
+    background-color: hsla(0, 0%, 0%, 0.3);
+    color: floralwhite;
+    width: 100vw;
+    position: fixed;
+}
+.nav-links {
+    display: flex;
+    gap: 4vw;
+    font-family: "Darumadrop One", sans-serif;
+    font-size: 3vw;
+    align-items: center;
+
+}
+.logo {
+    font-size: 4.5vw;
+    font-family: "Darumadrop One", sans-serif;
+    line-height: 1;
+    margin-bottom: 1.5vw;
+    padding-left: 35px;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    padding-right: 35px;
+    margin: 0;
+    margin-bottom: 1vw;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: floralwhite;
+}
+/* ----------------------------------------------------------------------------------------- */
+
+/* attractions-site ------------------------------------------------------------------------*/
+.attractions {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.prismic.io/bounce/c6c3ba65-b299-4ce1-8a25-6073547c1340_stephan-mahlke-XTPSr7skkWk-unsplash.jpg?auto=format,compress");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+/* Headline Styling */
+.headline {
+    font-size: 1vw;
+    font-family: "Darumadrop One", sans-serif;
+    color: floralwhite;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Locations Grid */
+.locations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 5vw;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 62vw;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.location-item {
+    font-family: "Darumadrop One", sans-serif;
+    font-style: oblique;
+    font-size: 2vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+
+
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+.link {
+    font-family: "Darumadrop One", sans-serif;
+    font-style: oblique;
+    font-size: 2vw;
+    color: white;
+    text-decoration: none;
+}
+.about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://www.airflix.dk/wp-content/uploads/2017/02/M%C3%B8ns-Klint-drone_1920x1080.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.about p {
+    font-size: 1.5vw;
+}
+
+.contact {
+    background-color: #796457;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 25vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* viewAttraction.html ----------------------------------------------------------- */
+.viewAttractionStart {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/shifted_image_corrected.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+}
+
+.viewAttractionStart h1 {
+    font-size: 3vw;
+    font-family: "Darumadrop One", sans-serif;
+    color: floralwhite;
+}
+
+.viewAttractionStart p {
+    font-size: 1.5vw;
+    font-family: "Darumadrop One", sans-serif;
+    color: floralwhite;
+}
+
+.viewAttractionStart h2 {
+    font-size: 1.5vw;
+    font-family: "Darumadrop One", sans-serif;
+    color: floralwhite;
+}
+
+.viewAttractionStart a {
+    font-size: 1.5vw;
+    font-family: "Darumadrop One", sans-serif;
+    color: floralwhite;
+    text-decoration: underline;
+    margin-top: 5vw;
+
+}
+
+
+.content2 {
+    background-color: #1c203c;
+    width: 45vw;
+    margin-left: 5vw;
+    margin-top: 5vw;
+    padding: 2vw;
+    border-radius: 12px;
+    height: fit-content;
+}
+
+.back {
+    margin-top: 5vw;
+}
+
+
+
+
