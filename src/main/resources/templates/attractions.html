@@ -38,23 +38,28 @@
         <div class="headline">
             <h1>Attractions:</h1>
             <!-- the action is what calls the method from the controller -->
-            <form action="/attractions#attractions" method="get"> <!-- the get-method adds the input to the url-->
-                <input type="text" class="inputBar" name="search" placeholder="Search for an attraction..." th:value="${param.search}">
-                <!-- by adding th:value="${param.search}" it makes what the user typed in stay on the page when reloading -->
-                <button class="submit" type="submit">Search</button> <!-- submits what the user typed in -->
-            </form>
+            <div class="searchAdd">
+                <form action="/attractions#attractions" method="get"> <!-- the get-method adds the input to the url-->
+                    <input type="text" class="inputBar" name="search" placeholder="Search for an attraction..."
+                           th:value="${param.search}">
+                    <!-- by adding th:value="${param.search}" it makes what the user typed in stay on the page when reloading -->
+                    <button class="btn-submit" type="submit">Search</button> <!-- submits what the user typed in -->
+                </form>
+                <form action="attractions/addattraction" method="get"> <!-- the get-method adds the input to the url-->
+                    <!-- by adding th:value="${param.search}" it makes what the user typed in stay on the page when reloading -->
+                    <button class="btn-submit" type="submit">Add attraction</button>
+                    <!-- submits what the user typed in -->
+                </form>
+            </div>
         </div>
-<!-- the reason the following code works and updates is because the submit button refreshes the page -->
+        <!-- the reason the following code works and updates is because the submit button refreshes the page -->
         <div class="locations">
             <div class="location-item" th:each="attraction : ${attractions}">
-                <a class="link" th:href="@{/attractions/viewattraction/{name}(name=${attraction.name})} " th:text="${attraction.name}"></a>
-            </div> <!--        the page that you will be redirected to by clicking the name     what is shown by standard on the main page -->
+                <a class="link" th:href="@{/attractions/viewattraction/{name}(name=${attraction.name})} "
+                   th:text="${attraction.name}"></a>
+            </div>
+            <!--        the page that you will be redirected to by clicking the name     what is shown by standard on the main page -->
         </div>
-        <p th:if="${message}" th:text="${message}"
-           style="color: red; text-align: center;
-          font-family: 'Darumadrop One', sans-serif;
-          font-size: 2vw; font-style: oblique;">
-        </p>
     </div>
 
 </div>
@@ -74,6 +79,5 @@
         <p>Rasbiehl@gmail.com</p>
     </div>
 </div>
-
 </body>
 </html>

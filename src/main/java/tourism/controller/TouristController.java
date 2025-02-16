@@ -55,12 +55,16 @@ public class TouristController {
 
         return "viewAttraction"; // Loads viewAttraction.html
     }
-/*
-    @PostMapping
-    public ResponseEntity<String> addAttraction(@RequestBody TouristAttraction attraction) {
-        touristService.addAttraction(attraction);
-        return ResponseEntity.ok("Attraction added successfully");
-    } */
+
+    @PostMapping("/add")
+    public String addAttraction(@ModelAttribute TouristAttraction newAttraction) {
+        touristService.addAttraction(newAttraction);
+        return "redirect:/attractions#attractions";
+    }
+    @GetMapping("/addattraction")
+    public String getAddAttraction() {
+        return "addattraction";
+    }
 
 
     @PostMapping("/delete/{name}")
@@ -78,15 +82,17 @@ public class TouristController {
 
 
     @PostMapping("/update/{name}")
-    public String updateAttraction(@PathVariable String name, @ModelAttribute TouristAttraction updatedAttraction, Model model) {
+    public String updateAttraction(@PathVariable String name, @ModelAttribute TouristAttraction updatedAttraction, RedirectAttributes redirectAttributes) {
         boolean updated = touristService.updateAttraction(name, updatedAttraction.getName(), updatedAttraction.getDescription());
 
-        if (updated) {
-            model.addAttribute("message", "Attraction is updated.");
-        } else {
-            model.addAttribute("message", "Attraction was not found and wasn't updated.");
-        }
+        redirectAttributes.addFlashAttribute("updated", updated);
 
-        return "redirect:/attractions#attractions";
+        if (updated) {
+            redirectAttributes.addFlashAttribute("message", name + " is updated to: " + updatedAttraction.getName());
+            return "redirect:/attractions/viewattraction/" + updatedAttraction.getName();
+        } else {
+            redirectAttributes.addFlashAttribute("message", "Attraction was not updated. Use letters and not symbols.");
+            return "redirect:/attractions/viewattraction/" + name;
+        }
     }
 }

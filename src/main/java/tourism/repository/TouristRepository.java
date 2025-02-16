@@ -148,15 +148,26 @@ public class TouristRepository {
 
     //update an attraction with new name and description by finding it with the name.
     public boolean updateAttraction(String name, String newName, String newDescription) {
+        if (name == null || newName == null || newDescription == null) {
+            return false;
+        }
+
+        if (newName.trim().isEmpty() || newDescription.trim().isEmpty()) {
+            return false;
+        }
+
+        if (!newName.chars().allMatch(Character::isLetter)) {
+            return false;
+        }
+
         for (TouristAttraction attraction : attractions) {
-            if (attraction.getName().equals(name)) {
+            if (attraction.getName().equalsIgnoreCase(name)) { // Case-insensitive match
                 attraction.setName(newName);
                 attraction.setDescription(newDescription);
                 return true;
-
             }
         }
-        return false;
+        return false; // Attraction not found
     }
 
 }
